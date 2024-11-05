@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "DALL_E_2024-11-03_17.25.29_-_A_playful_and_colorful_logo_for_a_card_game_app_titled__Flip_and_Match.__The_design_features_two_cards_flipping_in_mid-air__with_one_showing_a_bright_-removebg-preview.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F6467C7EFCDD7ADA1D4B3FA8 /* Pods_PokerTitanQuest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D54F8D5CF1AD331A05262356 /* Pods_PokerTitanQuest.framework */; };
+		FFA4007F2CD9FAAF0085B815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFA400762CD9FAAF0085B815 /* Assets.xcassets */; };
+		FFA400812CD9FAAF0085B815 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFA400792CD9FAAF0085B815 /* LaunchScreen.storyboard */; };
+		FFA400822CD9FAAF0085B815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFA4007B2CD9FAAF0085B815 /* Main.storyboard */; };
+		FFA400832CD9FAAF0085B815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA400752CD9FAAF0085B815 /* AppDelegate.swift */; };
+		FFA400842CD9FAAF0085B815 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA4007C2CD9FAAF0085B815 /* SceneDelegate.swift */; };
+		FFA400852CD9FAAF0085B815 /* TitanHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA4007D2CD9FAAF0085B815 /* TitanHomeViewController.swift */; };
+		FFA400872CDA037D0085B815 /* TitanAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA400862CDA037A0085B815 /* TitanAboutViewController.swift */; };
+		FFA400892CDA038A0085B815 /* TitanCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA400882CDA03890085B815 /* TitanCardCollectionViewCell.swift */; };
+		FFA4008B2CDA03BB0085B815 /* TitanCardFlipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA4008A2CDA03BB0085B815 /* TitanCardFlipViewController.swift */; };
+		FFA4008D2CDA03D20085B815 /* TitanCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA4008C2CDA03D10085B815 /* TitanCards.swift */; };
+		FFA4008F2CDA03DF0085B815 /* TitanQuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA4008E2CDA03DE0085B815 /* TitanQuizQuestion.swift */; };
+		FFA400912CDA03EE0085B815 /* TitanCardsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA400902CDA03ED0085B815 /* TitanCardsModels.swift */; };
+		FFA400932CDA03FF0085B815 /* TitanFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA400922CDA03FE0085B815 /* TitanFeedbackViewController.swift */; };
+		FFA400952CDA040C0085B815 /* TitanRateUSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA400942CDA040B0085B815 /* TitanRateUSViewController.swift */; };
+		FFA400972CDA04200085B815 /* TitanPlayerCradViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA400962CDA041F0085B815 /* TitanPlayerCradViewController.swift */; };
+		FFA400992CDA04380085B815 /* UIView+r.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA400982CDA04350085B815 /* UIView+r.swift */; };
+		FFA4009B2CDA04530085B815 /* TitanCustomCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA4009A2CDA04520085B815 /* TitanCustomCornerView.swift */; };
+		FFA4009D2CDA046B0085B815 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA4009C2CDA04690085B815 /* Tool.swift */; };
+		FFA4009F2CDA04810085B815 /* TitanSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA4009E2CDA04800085B815 /* TitanSettingViewController.swift */; };
+		FFA400A12CDA04900085B815 /* TitanSoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA400A02CDA04900085B815 /* TitanSoundManager.swift */; };
+		FFA400A52CDA051A0085B815 /* TitanNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA400A42CDA051A0085B815 /* TitanNavigationController.m */; };
+		FFA400A82CDA07340085B815 /* TitanPrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA400A72CDA07340085B815 /* TitanPrivacyViewController.m */; };
+		FFA400AD2CDA18E80085B815 /* flip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FFA400A92CDA18E80085B815 /* flip.mp3 */; };
+		FFA400AE2CDA18E80085B815 /* noMatch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FFA400AC2CDA18E80085B815 /* noMatch.mp3 */; };
+		FFA400B02CDA18E80085B815 /* match.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FFA400AB2CDA18E80085B815 /* match.mp3 */; };
+		FFA400B22CDA190A0085B815 /* shuffle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FFA400B12CDA190A0085B815 /* shuffle.mp3 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5D643DBEA3766D3D79A0C283 /* Pods-PokerTitanQuest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokerTitanQuest.debug.xcconfig"; path = "Target Support Files/Pods-PokerTitanQuest/Pods-PokerTitanQuest.debug.xcconfig"; sourceTree = "<group>"; };
+		9BE523F631D6EF0543A92513 /* Pods-PokerTitanQuest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokerTitanQuest.release.xcconfig"; path = "Target Support Files/Pods-PokerTitanQuest/Pods-PokerTitanQuest.release.xcconfig"; sourceTree = "<group>"; };
+		D54F8D5CF1AD331A05262356 /* Pods_PokerTitanQuest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokerTitanQuest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFA4005D2CD9FA910085B815 /* PokerTitanQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokerTitanQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFA400752CD9FAAF0085B815 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FFA400762CD9FAAF0085B815 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FFA400772CD9FAAF0085B815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFA400782CD9FAAF0085B815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FFA4007A2CD9FAAF0085B815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FFA4007C2CD9FAAF0085B815 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FFA4007D2CD9FAAF0085B815 /* TitanHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanHomeViewController.swift; sourceTree = "<group>"; };
+		FFA400862CDA037A0085B815 /* TitanAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanAboutViewController.swift; sourceTree = "<group>"; };
+		FFA400882CDA03890085B815 /* TitanCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		FFA4008A2CDA03BB0085B815 /* TitanCardFlipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanCardFlipViewController.swift; sourceTree = "<group>"; };
+		FFA4008C2CDA03D10085B815 /* TitanCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanCards.swift; sourceTree = "<group>"; };
+		FFA4008E2CDA03DE0085B815 /* TitanQuizQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanQuizQuestion.swift; sourceTree = "<group>"; };
+		FFA400902CDA03ED0085B815 /* TitanCardsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanCardsModels.swift; sourceTree = "<group>"; };
+		FFA400922CDA03FE0085B815 /* TitanFeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanFeedbackViewController.swift; sourceTree = "<group>"; };
+		FFA400942CDA040B0085B815 /* TitanRateUSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanRateUSViewController.swift; sourceTree = "<group>"; };
+		FFA400962CDA041F0085B815 /* TitanPlayerCradViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanPlayerCradViewController.swift; sourceTree = "<group>"; };
+		FFA400982CDA04350085B815 /* UIView+r.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+r.swift"; sourceTree = "<group>"; };
+		FFA4009A2CDA04520085B815 /* TitanCustomCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanCustomCornerView.swift; sourceTree = "<group>"; };
+		FFA4009C2CDA04690085B815 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
+		FFA4009E2CDA04800085B815 /* TitanSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanSettingViewController.swift; sourceTree = "<group>"; };
+		FFA400A02CDA04900085B815 /* TitanSoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanSoundManager.swift; sourceTree = "<group>"; };
+		FFA400A22CDA051A0085B815 /* PokerTitanQuest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PokerTitanQuest-Bridging-Header.h"; sourceTree = "<group>"; };
+		FFA400A32CDA051A0085B815 /* TitanNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitanNavigationController.h; sourceTree = "<group>"; };
+		FFA400A42CDA051A0085B815 /* TitanNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitanNavigationController.m; sourceTree = "<group>"; };
+		FFA400A62CDA07340085B815 /* TitanPrivacyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitanPrivacyViewController.h; sourceTree = "<group>"; };
+		FFA400A72CDA07340085B815 /* TitanPrivacyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitanPrivacyViewController.m; sourceTree = "<group>"; };
+		FFA400A92CDA18E80085B815 /* flip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = flip.mp3; sourceTree = "<group>"; };
+		FFA400AB2CDA18E80085B815 /* match.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = match.mp3; sourceTree = "<group>"; };
+		FFA400AC2CDA18E80085B815 /* noMatch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = noMatch.mp3; sourceTree = "<group>"; };
+		FFA400B12CDA190A0085B815 /* shuffle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shuffle.mp3; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FFA4005A2CD9FA910085B815 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6467C7EFCDD7ADA1D4B3FA8 /* Pods_PokerTitanQuest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19177EC86B7D09E3CE5CBCD3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5D643DBEA3766D3D79A0C283 /* Pods-PokerTitanQuest.debug.xcconfig */,
+				9BE523F631D6EF0543A92513 /* Pods-PokerTitanQuest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BDAAFEFA663F8C969AEE875E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D54F8D5CF1AD331A05262356 /* Pods_PokerTitanQuest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFA400542CD9FA910085B815 = {
+			isa = PBXGroup;
+			children = (
+				FFA4007E2CD9FAAF0085B815 /* PokerTitanQuest */,
+				FFA4005E2CD9FA910085B815 /* Products */,
+				19177EC86B7D09E3CE5CBCD3 /* Pods */,
+				BDAAFEFA663F8C969AEE875E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FFA4005E2CD9FA910085B815 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFA4005D2CD9FA910085B815 /* PokerTitanQuest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FFA4007E2CD9FAAF0085B815 /* PokerTitanQuest */ = {
+			isa = PBXGroup;
+			children = (
+				FFA400752CD9FAAF0085B815 /* AppDelegate.swift */,
+				FFA400762CD9FAAF0085B815 /* Assets.xcassets */,
+				FFA400772CD9FAAF0085B815 /* Info.plist */,
+				FFA400792CD9FAAF0085B815 /* LaunchScreen.storyboard */,
+				FFA4007B2CD9FAAF0085B815 /* Main.storyboard */,
+				FFA4007C2CD9FAAF0085B815 /* SceneDelegate.swift */,
+				FFA4007D2CD9FAAF0085B815 /* TitanHomeViewController.swift */,
+				FFA400A62CDA07340085B815 /* TitanPrivacyViewController.h */,
+				FFA400A72CDA07340085B815 /* TitanPrivacyViewController.m */,
+				FFA400A32CDA051A0085B815 /* TitanNavigationController.h */,
+				FFA400A42CDA051A0085B815 /* TitanNavigationController.m */,
+				FFA400862CDA037A0085B815 /* TitanAboutViewController.swift */,
+				FFA400882CDA03890085B815 /* TitanCardCollectionViewCell.swift */,
+				FFA4008A2CDA03BB0085B815 /* TitanCardFlipViewController.swift */,
+				FFA4008C2CDA03D10085B815 /* TitanCards.swift */,
+				FFA4008E2CDA03DE0085B815 /* TitanQuizQuestion.swift */,
+				FFA400902CDA03ED0085B815 /* TitanCardsModels.swift */,
+				FFA400922CDA03FE0085B815 /* TitanFeedbackViewController.swift */,
+				FFA400942CDA040B0085B815 /* TitanRateUSViewController.swift */,
+				FFA400962CDA041F0085B815 /* TitanPlayerCradViewController.swift */,
+				FFA400982CDA04350085B815 /* UIView+r.swift */,
+				FFA4009A2CDA04520085B815 /* TitanCustomCornerView.swift */,
+				FFA4009C2CDA04690085B815 /* Tool.swift */,
+				FFA4009E2CDA04800085B815 /* TitanSettingViewController.swift */,
+				FFA400A02CDA04900085B815 /* TitanSoundManager.swift */,
+				FFA400A22CDA051A0085B815 /* PokerTitanQuest-Bridging-Header.h */,
+				FFA400A92CDA18E80085B815 /* flip.mp3 */,
+				FFA400AB2CDA18E80085B815 /* match.mp3 */,
+				FFA400AC2CDA18E80085B815 /* noMatch.mp3 */,
+				FFA400B12CDA190A0085B815 /* shuffle.mp3 */,
+			);
+			path = PokerTitanQuest;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FFA4005C2CD9FA910085B815 /* PokerTitanQuest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFA400702CD9FA920085B815 /* Build configuration list for PBXNativeTarget "PokerTitanQuest" */;
+			buildPhases = (
+				932933F2B02EE78EF3292802 /* [CP] Check Pods Manifest.lock */,
+				FFA400592CD9FA910085B815 /* Sources */,
+				FFA4005A2CD9FA910085B815 /* Frameworks */,
+				FFA4005B2CD9FA910085B815 /* Resources */,
+				238CE388A85B8746F5EC1DD2 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PokerTitanQuest;
+			productName = PokerTitanQuest;
+			productReference = FFA4005D2CD9FA910085B815 /* PokerTitanQuest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FFA400552CD9FA910085B815 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					FFA4005C2CD9FA910085B815 = {
+						CreatedOnToolsVersion = 16.0;
+						LastSwiftMigration = 1600;
+					};
+				};
+			};
+			buildConfigurationList = FFA400582CD9FA910085B815 /* Build configuration list for PBXProject "PokerTitanQuest" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FFA400542CD9FA910085B815;
+			productRefGroup = FFA4005E2CD9FA910085B815 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FFA4005C2CD9FA910085B815 /* PokerTitanQuest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FFA4005B2CD9FA910085B815 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFA400AD2CDA18E80085B815 /* flip.mp3 in Resources */,
+				FFA400AE2CDA18E80085B815 /* noMatch.mp3 in Resources */,
+				FFA400B02CDA18E80085B815 /* match.mp3 in Resources */,
+				FFA4007F2CD9FAAF0085B815 /* Assets.xcassets in Resources */,
+				FFA400B22CDA190A0085B815 /* shuffle.mp3 in Resources */,
+				FFA400812CD9FAAF0085B815 /* LaunchScreen.storyboard in Resources */,
+				FFA400822CD9FAAF0085B815 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		238CE388A85B8746F5EC1DD2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokerTitanQuest/Pods-PokerTitanQuest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokerTitanQuest/Pods-PokerTitanQuest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokerTitanQuest/Pods-PokerTitanQuest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		932933F2B02EE78EF3292802 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokerTitanQuest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FFA400592CD9FA910085B815 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFA400832CD9FAAF0085B815 /* AppDelegate.swift in Sources */,
+				FFA400952CDA040C0085B815 /* TitanRateUSViewController.swift in Sources */,
+				FFA400842CD9FAAF0085B815 /* SceneDelegate.swift in Sources */,
+				FFA400A82CDA07340085B815 /* TitanPrivacyViewController.m in Sources */,
+				FFA4009F2CDA04810085B815 /* TitanSettingViewController.swift in Sources */,
+				FFA4009D2CDA046B0085B815 /* Tool.swift in Sources */,
+				FFA400932CDA03FF0085B815 /* TitanFeedbackViewController.swift in Sources */,
+				FFA400A52CDA051A0085B815 /* TitanNavigationController.m in Sources */,
+				FFA400872CDA037D0085B815 /* TitanAboutViewController.swift in Sources */,
+				FFA4008D2CDA03D20085B815 /* TitanCards.swift in Sources */,
+				FFA4008B2CDA03BB0085B815 /* TitanCardFlipViewController.swift in Sources */,
+				FFA400972CDA04200085B815 /* TitanPlayerCradViewController.swift in Sources */,
+				FFA4009B2CDA04530085B815 /* TitanCustomCornerView.swift in Sources */,
+				FFA400892CDA038A0085B815 /* TitanCardCollectionViewCell.swift in Sources */,
+				FFA4008F2CDA03DF0085B815 /* TitanQuizQuestion.swift in Sources */,
+				FFA400992CDA04380085B815 /* UIView+r.swift in Sources */,
+				FFA400852CD9FAAF0085B815 /* TitanHomeViewController.swift in Sources */,
+				FFA400912CDA03EE0085B815 /* TitanCardsModels.swift in Sources */,
+				FFA400A12CDA04900085B815 /* TitanSoundManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FFA400792CD9FAAF0085B815 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFA400782CD9FAAF0085B815 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FFA4007B2CD9FAAF0085B815 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFA4007A2CD9FAAF0085B815 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FFA400712CD9FA920085B815 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D643DBEA3766D3D79A0C283 /* Pods-PokerTitanQuest.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PokerTitanQuest/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Poker Titan Quest";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PokerTitanQuest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PokerTitanQuest/PokerTitanQuest-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FFA400722CD9FA920085B815 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BE523F631D6EF0543A92513 /* Pods-PokerTitanQuest.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PokerTitanQuest/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Poker Titan Quest";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PokerTitanQuest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PokerTitanQuest/PokerTitanQuest-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		FFA400732CD9FA920085B815 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FFA400742CD9FA920085B815 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FFA400582CD9FA910085B815 /* Build configuration list for PBXProject "PokerTitanQuest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFA400732CD9FA920085B815 /* Debug */,
+				FFA400742CD9FA920085B815 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFA400702CD9FA920085B815 /* Build configuration list for PBXNativeTarget "PokerTitanQuest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFA400712CD9FA920085B815 /* Debug */,
+				FFA400722CD9FA920085B815 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FFA400552CD9FA910085B815 /* Project object */;
+}
