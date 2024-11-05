@@ -633,7 +633,7 @@ Whether you're a casual player or a seasoned poker pro, Poker Titan Quest offers
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="mzZ-uN-buN">
                                 <rect key="frame" x="151" y="59" width="550" height="275"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dv" translatesAutoresizingMaskIntoConstraints="NO" id="4hF-JC-fBW">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="4hF-JC-fBW">
                                         <rect key="frame" x="0.0" y="0.0" width="254" height="275"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RgP-8G-Km4">
@@ -1146,53 +1146,62 @@ Whether you're a casual player or a seasoned poker pro, Poker Titan Quest offers
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="ykQ-vz-1qQ">
                                 <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Aer-nq-jir">
-                                <rect key="frame" x="85.333333333333314" y="39.333333333333343" width="681.33333333333348" height="314.33333333333326"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dv" translatesAutoresizingMaskIntoConstraints="NO" id="VpR-Mi-3gF">
-                                        <rect key="frame" x="0.0" y="0.0" width="681.33333333333337" height="261.33333333333331"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWv-be-Khk">
-                                        <rect key="frame" x="0.0" y="269.33333333333337" width="681.33333333333337" height="45"/>
-                                        <color key="backgroundColor" name="btn"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="gxR-tu-BSz"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="20"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Let's play">
-                                            <color key="titleColor" name="txt"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="16"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="startAction:" destination="HaZ-N1-cGW" eventType="touchUpInside" id="0fN-1b-2mR"/>
-                                            <segue destination="cet-ec-189" kind="push" id="6bw-KR-zli"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="VpR-Mi-3gF">
+                                <rect key="frame" x="326" y="96.666666666666686" width="200" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Zts-IN-IsI"/>
+                                    <constraint firstAttribute="width" constant="200" id="y4r-Bf-omF"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWv-be-Khk">
+                                <rect key="frame" x="276" y="306.66666666666669" width="300" height="60"/>
+                                <color key="backgroundColor" name="btn"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="YNy-cW-UMy"/>
+                                    <constraint firstAttribute="height" constant="60" id="kMv-Gd-Ejq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Let's play">
+                                    <color key="titleColor" name="txt"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startAction:" destination="HaZ-N1-cGW" eventType="touchUpInside" id="0fN-1b-2mR"/>
+                                    <segue destination="cet-ec-189" kind="push" id="6bw-KR-zli"/>
+                                </connections>
+                            </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="eP9-kX-dix">
                                 <rect key="frame" x="416" y="186.66666666666666" width="20" height="20"/>
                             </activityIndicatorView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeGirl" translatesAutoresizingMaskIntoConstraints="NO" id="N8I-Ye-mPF">
+                                <rect key="frame" x="612" y="153" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Nka-pS-KAy"/>
+                                    <constraint firstAttribute="height" constant="240" id="YWS-Gl-UiJ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="n7Q-KE-yDy"/>
                         <color key="backgroundColor" red="0.39972549680000002" green="0.45328443880000002" blue="0.99332553150000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="RWv-be-Khk" firstAttribute="centerX" secondItem="qR3-hW-drB" secondAttribute="centerX" id="0oD-cT-h1c"/>
+                            <constraint firstAttribute="trailing" secondItem="N8I-Ye-mPF" secondAttribute="trailing" id="5E1-q6-wPC"/>
                             <constraint firstItem="ykQ-vz-1qQ" firstAttribute="leading" secondItem="qR3-hW-drB" secondAttribute="leading" id="9Qo-I7-5Xa"/>
                             <constraint firstItem="eP9-kX-dix" firstAttribute="centerY" secondItem="qR3-hW-drB" secondAttribute="centerY" id="AfR-qD-x8B"/>
-                            <constraint firstItem="Aer-nq-jir" firstAttribute="centerX" secondItem="qR3-hW-drB" secondAttribute="centerX" id="BWB-F3-qru"/>
-                            <constraint firstItem="Aer-nq-jir" firstAttribute="centerY" secondItem="qR3-hW-drB" secondAttribute="centerY" id="G6h-1g-Dp5"/>
-                            <constraint firstItem="Aer-nq-jir" firstAttribute="width" secondItem="qR3-hW-drB" secondAttribute="width" multiplier="0.8" id="R4h-0e-atk"/>
+                            <constraint firstItem="VpR-Mi-3gF" firstAttribute="centerY" secondItem="qR3-hW-drB" secondAttribute="centerY" id="FLJ-rW-yPl"/>
+                            <constraint firstAttribute="bottom" secondItem="N8I-Ye-mPF" secondAttribute="bottom" id="JFv-pq-rX3"/>
                             <constraint firstAttribute="bottom" secondItem="ykQ-vz-1qQ" secondAttribute="bottom" id="Tba-TT-qSO"/>
                             <constraint firstAttribute="trailing" secondItem="ykQ-vz-1qQ" secondAttribute="trailing" id="agg-fe-7bg"/>
                             <constraint firstItem="eP9-kX-dix" firstAttribute="centerX" secondItem="qR3-hW-drB" secondAttribute="centerX" id="eYh-x5-4RV"/>
-                            <constraint firstItem="Aer-nq-jir" firstAttribute="height" secondItem="qR3-hW-drB" secondAttribute="height" multiplier="0.8" id="lgV-lU-4v8"/>
                             <constraint firstItem="ykQ-vz-1qQ" firstAttribute="top" secondItem="qR3-hW-drB" secondAttribute="top" id="mq0-Hr-Xto"/>
+                            <constraint firstItem="RWv-be-Khk" firstAttribute="top" secondItem="VpR-Mi-3gF" secondAttribute="bottom" constant="10" id="oK3-jV-hCF"/>
+                            <constraint firstItem="VpR-Mi-3gF" firstAttribute="centerX" secondItem="qR3-hW-drB" secondAttribute="centerX" id="vDg-3U-QFW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="c8R-mf-b2p"/>
@@ -1202,7 +1211,7 @@ Whether you're a casual player or a seasoned poker pro, Poker Titan Quest offers
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCC-Bv-dv4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="179" y="-616"/>
+            <point key="canvasLocation" x="178.87323943661974" y="-616.03053435114498"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="8p6-ra-4zA">
@@ -1408,10 +1417,11 @@ Whether you're a casual player or a seasoned poker pro, Poker Titan Quest offers
         <image name="bg" width="563" height="264"/>
         <image name="btn" width="296" height="82"/>
         <image name="contact" width="512" height="512"/>
-        <image name="dv" width="500" height="500"/>
         <image name="flip" width="500" height="500"/>
+        <image name="homeGirl" width="800" height="800"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="info.square.fill" catalog="system" width="128" height="114"/>
+        <image name="logo" width="500" height="500"/>
         <image name="more" width="414" height="403"/>
         <image name="player1" width="169" height="38"/>
         <image name="player2" width="173" height="42"/>
