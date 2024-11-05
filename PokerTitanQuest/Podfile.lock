@@ -1,4 +1,7 @@
 PODS:
+  - Adjust (4.38.4):
+    - Adjust/Core (= 4.38.4)
+  - Adjust/Core (4.38.4)
   - IQKeyboardCore (1.0.5)
   - IQKeyboardManagerSwift (7.2.0):
     - IQKeyboardManagerSwift/Appearance (= 7.2.0)
@@ -41,21 +44,24 @@ PODS:
     - IQKeyboardCore (= 1.0.5)
 
 DEPENDENCIES:
+  - Adjust (= 4.38.4)
   - IQKeyboardManagerSwift
 
 SPEC REPOS:
   trunk:
+    - Adjust
     - IQKeyboardCore
     - IQKeyboardManagerSwift
     - IQKeyboardNotification
     - IQTextInputViewNotification
 
 SPEC CHECKSUMS:
+  Adjust: afda46df69f035fd216310fb85f399c40c61830a
   IQKeyboardCore: 28c8bf3bcd8ba5aa1570b318cbc4da94b861711e
   IQKeyboardManagerSwift: 12d6ae3632ef744ccd033c048b566af13cc10d49
   IQKeyboardNotification: d7382c4466c5a5adef92c7452ebf861b36050088
   IQTextInputViewNotification: 4381fb828881983205fbee38f17da8a9fe2e835c
 
-PODFILE CHECKSUM: 4b5de957ae9a8e130fd49803e95e352293719021
+PODFILE CHECKSUM: dc8efe839586897e8a44d4193251cd4d95015b6e
 
 COCOAPODS: 1.15.2

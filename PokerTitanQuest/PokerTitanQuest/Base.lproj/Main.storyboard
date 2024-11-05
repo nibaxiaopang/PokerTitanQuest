@@ -81,6 +81,14 @@ Whether you're a casual player or a seasoned poker pro, Poker Titan Quest offers
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="yYb-9R-gIa">
                                 <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                             </imageView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAS-Ct-g0F">
+                                <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZ5-7n-yZ0">
                                 <rect key="frame" x="67" y="16" width="42" height="42"/>
                                 <constraints>
@@ -89,7 +97,13 @@ Whether you're a casual player or a seasoned poker pro, Poker Titan Quest offers
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="backBtn"/>
+                                <connections>
+                                    <action selector="backAction:" destination="Sxb-3T-gfN" eventType="touchUpInside" id="XQo-Ux-z4G"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="dXF-HX-2uQ">
+                                <rect key="frame" x="416" y="186.66666666666666" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CDv-1f-kuS"/>
                         <color key="backgroundColor" name="btn"/>
@@ -99,10 +113,21 @@ Whether you're a casual player or a seasoned poker pro, Poker Titan Quest offers
                             <constraint firstItem="IZ5-7n-yZ0" firstAttribute="top" secondItem="CDv-1f-kuS" secondAttribute="top" constant="16" id="PG6-4I-B0L"/>
                             <constraint firstItem="yYb-9R-gIa" firstAttribute="top" secondItem="N5T-lP-Zsv" secondAttribute="top" id="XGS-Df-0ko"/>
                             <constraint firstItem="IZ5-7n-yZ0" firstAttribute="leading" secondItem="CDv-1f-kuS" secondAttribute="leading" constant="8" id="g9V-mv-Idv"/>
+                            <constraint firstItem="oAS-Ct-g0F" firstAttribute="leading" secondItem="N5T-lP-Zsv" secondAttribute="leading" id="hMm-I9-9Pl"/>
+                            <constraint firstItem="dXF-HX-2uQ" firstAttribute="centerX" secondItem="N5T-lP-Zsv" secondAttribute="centerX" id="lF4-Xz-Pba"/>
+                            <constraint firstItem="oAS-Ct-g0F" firstAttribute="top" secondItem="N5T-lP-Zsv" secondAttribute="top" id="mwJ-cI-Q4A"/>
+                            <constraint firstAttribute="bottom" secondItem="oAS-Ct-g0F" secondAttribute="bottom" id="n1E-9q-W6w"/>
+                            <constraint firstAttribute="trailing" secondItem="oAS-Ct-g0F" secondAttribute="trailing" id="teS-Db-OgS"/>
+                            <constraint firstItem="dXF-HX-2uQ" firstAttribute="centerY" secondItem="N5T-lP-Zsv" secondAttribute="centerY" id="yQg-BJ-2j7"/>
                             <constraint firstAttribute="bottom" secondItem="yYb-9R-gIa" secondAttribute="bottom" id="zGV-7q-HYw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3CZ-om-GZc"/>
+                    <connections>
+                        <outlet property="activity" destination="dXF-HX-2uQ" id="K6U-8m-ono"/>
+                        <outlet property="backBtn" destination="IZ5-7n-yZ0" id="45h-7Q-TwF"/>
+                        <outlet property="privicyWebView" destination="oAS-Ct-g0F" id="UNr-2w-G4D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pqR-XI-V1Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1145,26 +1170,35 @@ Whether you're a casual player or a seasoned poker pro, Poker Titan Quest offers
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="startAction:" destination="HaZ-N1-cGW" eventType="touchUpInside" id="0fN-1b-2mR"/>
                                             <segue destination="cet-ec-189" kind="push" id="6bw-KR-zli"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="eP9-kX-dix">
+                                <rect key="frame" x="416" y="186.66666666666666" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="n7Q-KE-yDy"/>
                         <color key="backgroundColor" red="0.39972549680000002" green="0.45328443880000002" blue="0.99332553150000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ykQ-vz-1qQ" firstAttribute="leading" secondItem="qR3-hW-drB" secondAttribute="leading" id="9Qo-I7-5Xa"/>
+                            <constraint firstItem="eP9-kX-dix" firstAttribute="centerY" secondItem="qR3-hW-drB" secondAttribute="centerY" id="AfR-qD-x8B"/>
                             <constraint firstItem="Aer-nq-jir" firstAttribute="centerX" secondItem="qR3-hW-drB" secondAttribute="centerX" id="BWB-F3-qru"/>
                             <constraint firstItem="Aer-nq-jir" firstAttribute="centerY" secondItem="qR3-hW-drB" secondAttribute="centerY" id="G6h-1g-Dp5"/>
                             <constraint firstItem="Aer-nq-jir" firstAttribute="width" secondItem="qR3-hW-drB" secondAttribute="width" multiplier="0.8" id="R4h-0e-atk"/>
                             <constraint firstAttribute="bottom" secondItem="ykQ-vz-1qQ" secondAttribute="bottom" id="Tba-TT-qSO"/>
                             <constraint firstAttribute="trailing" secondItem="ykQ-vz-1qQ" secondAttribute="trailing" id="agg-fe-7bg"/>
+                            <constraint firstItem="eP9-kX-dix" firstAttribute="centerX" secondItem="qR3-hW-drB" secondAttribute="centerX" id="eYh-x5-4RV"/>
                             <constraint firstItem="Aer-nq-jir" firstAttribute="height" secondItem="qR3-hW-drB" secondAttribute="height" multiplier="0.8" id="lgV-lU-4v8"/>
                             <constraint firstItem="ykQ-vz-1qQ" firstAttribute="top" secondItem="qR3-hW-drB" secondAttribute="top" id="mq0-Hr-Xto"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="c8R-mf-b2p"/>
+                    <connections>
+                        <outlet property="suitActivityView" destination="eP9-kX-dix" id="Gte-QZ-D2O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCC-Bv-dv4" sceneMemberID="firstResponder"/>
             </objects>

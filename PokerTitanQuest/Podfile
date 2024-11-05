@@ -7,4 +7,5 @@ target 'PokerTitanQuest' do
 
   # Pods for PokerTitanQuest
   pod 'IQKeyboardManagerSwift'
+  pod 'Adjust', '4.38.4'
 end

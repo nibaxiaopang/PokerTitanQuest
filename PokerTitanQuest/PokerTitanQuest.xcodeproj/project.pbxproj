@@ -34,6 +34,12 @@
 		FFA400AE2CDA18E80085B815 /* noMatch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FFA400AC2CDA18E80085B815 /* noMatch.mp3 */; };
 		FFA400B02CDA18E80085B815 /* match.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FFA400AB2CDA18E80085B815 /* match.mp3 */; };
 		FFA400B22CDA190A0085B815 /* shuffle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FFA400B12CDA190A0085B815 /* shuffle.mp3 */; };
+		FFA400B72CDA1EEF0085B815 /* UIViewController+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA400B62CDA1EEF0085B815 /* UIViewController+Ext.m */; };
+		FFA400B82CDA1EEF0085B815 /* TitanNetReachManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA400B42CDA1EEF0085B815 /* TitanNetReachManager.m */; };
+		FFA400BC2CDA25690085B815 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA400BB2CDA25690085B815 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FFA400BE2CDA25700085B815 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA400BD2CDA25700085B815 /* AdServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FFA400C02CDA25750085B815 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA400BF2CDA25750085B815 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FFA400C22CDA257E0085B815 /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA400C12CDA257E0085B815 /* AppTrackingTransparency.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +77,14 @@
 		FFA400AB2CDA18E80085B815 /* match.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = match.mp3; sourceTree = "<group>"; };
 		FFA400AC2CDA18E80085B815 /* noMatch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = noMatch.mp3; sourceTree = "<group>"; };
 		FFA400B12CDA190A0085B815 /* shuffle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shuffle.mp3; sourceTree = "<group>"; };
+		FFA400B32CDA1EEF0085B815 /* TitanNetReachManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitanNetReachManager.h; sourceTree = "<group>"; };
+		FFA400B42CDA1EEF0085B815 /* TitanNetReachManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitanNetReachManager.m; sourceTree = "<group>"; };
+		FFA400B52CDA1EEF0085B815 /* UIViewController+Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Ext.h"; sourceTree = "<group>"; };
+		FFA400B62CDA1EEF0085B815 /* UIViewController+Ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Ext.m"; sourceTree = "<group>"; };
+		FFA400BB2CDA25690085B815 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		FFA400BD2CDA25700085B815 /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
+		FFA400BF2CDA25750085B815 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		FFA400C12CDA257E0085B815 /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +92,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFA400C22CDA257E0085B815 /* AppTrackingTransparency.framework in Frameworks */,
+				FFA400BC2CDA25690085B815 /* WebKit.framework in Frameworks */,
+				FFA400C02CDA25750085B815 /* AdSupport.framework in Frameworks */,
 				F6467C7EFCDD7ADA1D4B3FA8 /* Pods_PokerTitanQuest.framework in Frameworks */,
+				FFA400BE2CDA25700085B815 /* AdServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +115,10 @@
 		BDAAFEFA663F8C969AEE875E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FFA400C12CDA257E0085B815 /* AppTrackingTransparency.framework */,
+				FFA400BF2CDA25750085B815 /* AdSupport.framework */,
+				FFA400BD2CDA25700085B815 /* AdServices.framework */,
+				FFA400BB2CDA25690085B815 /* WebKit.framework */,
 				D54F8D5CF1AD331A05262356 /* Pods_PokerTitanQuest.framework */,
 			);
 			name = Frameworks;
@@ -149,6 +171,10 @@
 				FFA4009E2CDA04800085B815 /* TitanSettingViewController.swift */,
 				FFA400A02CDA04900085B815 /* TitanSoundManager.swift */,
 				FFA400A22CDA051A0085B815 /* PokerTitanQuest-Bridging-Header.h */,
+				FFA400B32CDA1EEF0085B815 /* TitanNetReachManager.h */,
+				FFA400B42CDA1EEF0085B815 /* TitanNetReachManager.m */,
+				FFA400B52CDA1EEF0085B815 /* UIViewController+Ext.h */,
+				FFA400B62CDA1EEF0085B815 /* UIViewController+Ext.m */,
 				FFA400A92CDA18E80085B815 /* flip.mp3 */,
 				FFA400AB2CDA18E80085B815 /* match.mp3 */,
 				FFA400AC2CDA18E80085B815 /* noMatch.mp3 */,
@@ -294,6 +320,8 @@
 				FFA4008F2CDA03DF0085B815 /* TitanQuizQuestion.swift in Sources */,
 				FFA400992CDA04380085B815 /* UIView+r.swift in Sources */,
 				FFA400852CD9FAAF0085B815 /* TitanHomeViewController.swift in Sources */,
+				FFA400B72CDA1EEF0085B815 /* UIViewController+Ext.m in Sources */,
+				FFA400B82CDA1EEF0085B815 /* TitanNetReachManager.m in Sources */,
 				FFA400912CDA03EE0085B815 /* TitanCardsModels.swift in Sources */,
 				FFA400A12CDA04900085B815 /* TitanSoundManager.swift in Sources */,
 			);
@@ -334,6 +362,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PokerTitanQuest/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Poker Titan Quest";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Poker Titan Quest requests access to your device information to optimize the app’s performance and personalize your gaming experience.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -345,7 +374,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.PokerTitanQuest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.poker.game.PokerTitanQuest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -370,6 +399,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PokerTitanQuest/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Poker Titan Quest";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Poker Titan Quest requests access to your device information to optimize the app’s performance and personalize your gaming experience.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -381,7 +411,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.PokerTitanQuest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.poker.game.PokerTitanQuest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

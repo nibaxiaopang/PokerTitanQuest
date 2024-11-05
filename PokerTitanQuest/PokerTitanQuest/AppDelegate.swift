@@ -2,19 +2,42 @@
 //  AppDelegate.swift
 //  PokerTitanQuest
 //
-//  Created by jin fu on 2024/11/5.
+//  Created by PokerTitanQuest on 2024/11/5.
 //
 
 import UIKit
+import Adjust
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, AdjustDelegate {
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let token = UIViewController.titanAdToken()
+        let environment = ADJEnvironmentProduction
+        let myAdjustConfig = ADJConfig(
+               appToken: token,
+               environment: environment)
+        myAdjustConfig?.delegate = self
+        myAdjustConfig?.logLevel = ADJLogLevelVerbose
+        Adjust.appDidLaunch(myAdjustConfig)
+        
         return true
+    }
+    
+    func adjustEventTrackingSucceeded(_ eventSuccessResponseData: ADJEventSuccess?) {
+        print("adjustEventTrackingSucceeded")
+    }
+    
+    func adjustEventTrackingFailed(_ eventFailureResponseData: ADJEventFailure?) {
+        print("adjustEventTrackingFailed")
+    }
+    
+    func adjustAttributionChanged(_ attribution: ADJAttribution?) {
+        print("adid\(attribution?.adid ?? "")")
     }
 
     // MARK: UISceneSession Lifecycle
