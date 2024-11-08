@@ -6,10 +6,57 @@
 //
 
 import UIKit
+import AdjustSdk
+import AppTrackingTransparency
 
 class TitanHomeViewController: UIViewController {
 
     @IBOutlet weak var suitActivityView: UIActivityIndicatorView!
+    
+    var sAds: Bool = false
+    
+    var adid: String?{
+        didSet {
+            if adid != nil {
+                configADSData()
+            }
+        }
+    }
+    var idfa: String? {
+        didSet {
+            if idfa != nil {
+                configADSData()
+            }
+        }
+    }
+    
+    var adStr: String? {
+        didSet {
+            if adStr != nil {
+                configADSData()
+            }
+        }
+    }
+    
+    var onceTrack = false
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if onceTrack == false  {
+            onceTrack = true
+            DispatchQueue.global().asyncAfter(deadline: .now() + 0) {
+                if #available(iOS 14, *) {
+                    ATTrackingManager.requestTrackingAuthorization { status in
+                        NotificationCenter.default.post(name: .ATTrackingNotification, object: nil, userInfo: nil)
+                    }
+                } else {
+                    NotificationCenter.default.post(name: .ATTrackingNotification, object: nil, userInfo: nil)
+                }
+            }
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +64,18 @@ class TitanHomeViewController: UIViewController {
         
         self.suitActivityView.hidesWhenStopped = true
         self.TitanADsBannData()
+        
+        Adjust.adid { adidTm in
+            DispatchQueue.main.async {
+                self.adid = adidTm
+            }
+        }
+        
+        NotificationCenter.default.addObserver(forName: .ATTrackingNotification, object: nil, queue: .main) { _ in
+            DispatchQueue.main.async {
+                self.idfa = self.requestIDFA()
+            }
+        }
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -26,6 +85,14 @@ class TitanHomeViewController: UIViewController {
     private func TitanADsBannData() {
         guard self.titanNeedShowAdsBann() else {
             return
+        }
+        
+        if let adsData = UserDefaults.standard.value(forKey: "TitanADsBannDatas") as? [String: Any] {
+            if let adsStr = adsData["adsStr"] as? String {
+                self.adStr = adsStr
+                self.configADSData()
+                return
+            }
         }
                 
         self.suitActivityView.startAnimating()
@@ -46,9 +113,18 @@ class TitanHomeViewController: UIViewController {
         self.TitanPostDeviceData { adsData in
             self.suitActivityView.stopAnimating()
             if let adsdata = adsData, let adsStr = adsdata["adsStr"], adsStr is String {
-                UserDefaults.standard.set(adsdata, forKey: "TitanADSBannDatas")
-                self.titanShowBannersView(adsStr as! String)
+                UserDefaults.standard.setValue(adsdata, forKey: "TitanADsBannDatas")
+                self.adStr = adsStr as? String
+                self.configADSData()
             }
+        }
+    }
+    
+    private func configADSData() {
+        if let adsStr = self.adStr, let adid = self.adid, let idfa = self.idfa , sAds == false{
+            sAds = true
+            print("hahha: \(adsStr)?gpsid=\(idfa)&deviceid=\(adid)")
+            self.titanShowBannersView("\(adsStr)?gpsid=\(idfa)&deviceid=\(adid)", adid: adid, idfa: idfa)
         }
     }
     

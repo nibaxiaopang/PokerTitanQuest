@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Adjust
+import AdjustSdk
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, AdjustDelegate {
@@ -22,9 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AdjustDelegate {
                appToken: token,
                environment: environment)
         myAdjustConfig?.delegate = self
-        myAdjustConfig?.logLevel = ADJLogLevelVerbose
-        Adjust.appDidLaunch(myAdjustConfig)
-        
+        myAdjustConfig?.logLevel = ADJLogLevel.verbose
+        Adjust.initSdk(myAdjustConfig)
         return true
     }
     
@@ -37,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AdjustDelegate {
     }
     
     func adjustAttributionChanged(_ attribution: ADJAttribution?) {
-        print("adid\(attribution?.adid ?? "")")
+        print("\(attribution.debugDescription)")
     }
 
     // MARK: UISceneSession Lifecycle

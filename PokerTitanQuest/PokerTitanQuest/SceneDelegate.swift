@@ -6,8 +6,11 @@
 //
 
 import UIKit
-import Adjust
-import AppTrackingTransparency
+import AdjustSdk
+
+extension Notification.Name {
+    static let ATTrackingNotification = Notification.Name("ATTrackingNotification")
+}
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -32,12 +35,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
         Adjust.trackSubsessionStart()
-        DispatchQueue.global().asyncAfter(deadline: .now() + 0.45) {
-            if #available(iOS 14, *) {
-                ATTrackingManager.requestTrackingAuthorization { status in
-                }
-            }
-        }
     }
 
     func sceneWillResignActive(_ scene: UIScene) {

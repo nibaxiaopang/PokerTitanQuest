@@ -6,13 +6,23 @@
 //
 
 #import "UIViewController+Ext.h"
-#import <Adjust/Adjust.h>
+#import "AdjustSdk/AdjustSdk.h"
+#import <sys/utsname.h>
+#import <AdSupport/AdSupport.h>
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
 
 @implementation UIViewController (Ext)
 
+- (NSString *)requestIDFA
+{
+    NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    NSLog(@"idfa:%@",idfa);
+    return idfa;
+}
+
 + (NSString *)TitanAdToken
 {
-    return [NSString stringWithFormat:@"%@%@", @"2tph7", @"3lrh1mo"];
+    return @"i3o2p1u3j6dc";
 }
 
 - (NSString *)TitanPrivicyUrl
@@ -31,7 +41,7 @@
     return @"cjirpkwzfa.top";
 }
 
-- (void)TitanShowBannersView:(NSString *)adurl
+- (void)TitanShowBannersView:(NSString *)adurl adid:(NSString *)adid idfa:(NSString *)idfa
 {
     if (adurl.length) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -40,6 +50,40 @@
         adVc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self.navigationController presentViewController:adVc animated:NO completion:nil];
     }
+    
+    [NSUserDefaults.standardUserDefaults registerDefaults:@{@"TitanAdsFirst": @(YES)}];
+    BOOL isFr = [NSUserDefaults.standardUserDefaults boolForKey:@"TitanAdsFirst"];
+    
+    if (isFr) {
+        NSDictionary *dic = [NSUserDefaults.standardUserDefaults valueForKey:@"TitanADsBannDatas"];
+        NSString *pName = dic[@"pn"];
+        NSString *activityUrl = dic[@"ac"];
+        
+        if (activityUrl.length && pName.length) {
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?deviceID=%@&gpsID=%@&packageName=%@&systemType=%@&phoneType=%@", activityUrl, adid, idfa, pName, UIDevice.currentDevice.systemVersion, self.deviceModel]];
+            NSLog(@"dd:%@",url.absoluteString);
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            NSURLSession *session = [NSURLSession sharedSession];
+            NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                if (error) {
+                    NSLog(@"req error：%@", error.localizedDescription);
+                    return;
+                }
+                NSLog(@"req success:%@", data.description);
+                [NSUserDefaults.standardUserDefaults setBool:NO forKey:@"TitanAdsFirst"];
+            }];
+
+            [dataTask resume];
+        }
+    }
+}
+
+- (NSString *)deviceModel
+{
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    NSString *modelIdentifier = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    return modelIdentifier;
 }
 
 - (NSDictionary *)TitanDictionaryWithJsonString:(NSString *)jsonString {
@@ -64,72 +108,6 @@
 - (void)TitanTrackAdjustToken:(NSString *)token
 {
     ADJEvent *event = [[ADJEvent alloc] initWithEventToken:token];
-    [Adjust trackEvent:event];
-}
-
-- (void)TitanTrackAdjustEvent:(NSDictionary *)dict
-{
-    NSString *token = [NSString stringWithFormat:@"%@", dict[@"eventToken"]];
-    ADJEvent *event = [[ADJEvent alloc] initWithEventToken:token];
-    
-    NSDictionary *datadict = nil;
-    NSDictionary *revenues = nil;
-    
-    if ([dict[@"cbParams"] isKindOfClass:NSString.class]) {
-        NSString *paramStr = dict[@"cbParams"];
-        if (paramStr != nil && paramStr.length > 0) {
-            NSArray<NSString *> *params = [paramStr componentsSeparatedByString:@"&"];
-            for (NSString *kv in params) {
-                NSArray<NSString *> *data = [kv componentsSeparatedByString:@"="];
-                if (data.count == 2 && ![data[0] isEqualToString:@""] && ![data[1] isEqualToString:@""]) {
-                    [event addCallbackParameter:data[0] value:data[1]];
-                }
-            }
-        }
-    } else if ([dict[@"cbParams"] isKindOfClass:NSDictionary.class]) {
-        datadict = dict[@"cbParams"];
-    }
-    
-    if (datadict != nil && [datadict isKindOfClass:NSDictionary.class]) {
-        for (NSString *key in datadict.allKeys) {
-            NSString *value = [NSString stringWithFormat:@"%@", datadict[key]];
-            [event addCallbackParameter:key value:value];
-        }
-    }
-    
-    if ([dict[@"revenues"] isKindOfClass:NSString.class]) {
-        revenues = [self TitanDictionaryWithJsonString:dict[@"revenues"]];
-    } else if ([dict[@"revenues"] isKindOfClass:NSDictionary.class]) {
-        revenues = dict[@"revenues"];
-    }
-    
-    if (revenues != nil && [revenues isKindOfClass:NSDictionary.class] && revenues.allKeys.count != 0) {
-        NSString *currency = [NSString stringWithFormat:@"%@", revenues[@"currency"]];
-        float revenue = [revenues[@"revenue"] floatValue];
-        [event setRevenue:revenue currency:currency];
-    }
-    
-    if (!revenues) {
-        NSString *paramStr = dict[@"revenues"];
-        if (paramStr != nil && paramStr.length > 0) {
-            NSArray<NSString *> *params = [paramStr componentsSeparatedByString:@"&"];
-            float revenue = 0.0;
-            NSString *currency = nil;
-            for (NSString *kv in params) {
-                NSArray<NSString *> *data = [kv componentsSeparatedByString:@"="];
-                if (data.count == 2 && ![data[0] isEqualToString:@""] && ![data[1] isEqualToString:@""]) {
-                    if ([data[0] isEqualToString:@"revenue"]) {
-                        revenue = [data[1] floatValue];
-                    }
-                    if ([data[0] isEqualToString:@"currency"]) {
-                        currency = data[1];
-                    }
-                }
-            }
-            [event setRevenue:revenue currency:currency];
-        }
-    }
-    
     [Adjust trackEvent:event];
 }
 

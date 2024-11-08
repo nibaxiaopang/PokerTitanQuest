@@ -9,14 +9,16 @@
 #import "WebKit/WebKit.h"
 #import "UIViewController+Ext.h"
 
-@interface TitanPrivacyViewController ()<WKScriptMessageHandler, WKNavigationDelegate>
+@interface TitanPrivacyViewController ()<WKUIDelegate, WKNavigationDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 @property (weak, nonatomic) IBOutlet WKWebView *privicyWebView;
 
-@property (nonatomic, strong) NSDictionary *ccData;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstants;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstants;
 
+@property (nonatomic, strong) NSDictionary *adsDatas;
 @end
 
 @implementation TitanPrivacyViewController
@@ -25,38 +27,40 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskAll;
-}
-
-- (BOOL)shouldAutorotate
-{
-    return YES;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.ccData = [NSUserDefaults.standardUserDefaults valueForKey:@"TitanADSBannDatas"];
-    
+    self.adsDatas = [NSUserDefaults.standardUserDefaults valueForKey:@"TitanADsBannDatas"];
+        
     [self TitanInitSubViewsConfig];
     [self TitanInitRequest];
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    if (self.adsDatas) {
+        if ([self.adsDatas[@"top"] isKindOfClass:NSNumber.class] && [(NSNumber *)self.adsDatas[@"top"] integerValue] > 0) {
+            self.topConstants.constant = self.view.safeAreaInsets.top;
+        }
+        
+        if ([self.adsDatas[@"bot"] isKindOfClass:NSNumber.class] && [(NSNumber *)self.adsDatas[@"bot"] integerValue] > 0) {
+            self.bottomConstants.constant = self.view.safeAreaInsets.bottom;
+        }
+    }
 }
 
 - (void)TitanInitSubViewsConfig
 {
     self.activity.hidesWhenStopped = YES;
-    WKUserContentController *userContent = self.privicyWebView.configuration.userContentController;
-    if (self.ccData[@"k1"]) {
-        [userContent addScriptMessageHandler:self name:self.ccData[@"k1"]];
-    }
-    
     self.privicyWebView.alpha = 0;
     self.privicyWebView.navigationDelegate = self;
+    self.privicyWebView.UIDelegate = self;
     self.privicyWebView.backgroundColor = UIColor.blackColor;
     self.privicyWebView.scrollView.backgroundColor = UIColor.blackColor;
-    self.privicyWebView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentAlways;
+    self.privicyWebView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
 }
 
 - (void)TitanInitRequest
@@ -84,27 +88,6 @@
     }
 }
 
-- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
-{
-    if (self.ccData[@"k1"] && [message.name isEqualToString:self.ccData[@"k1"]]) {
-        NSString *body = message.body;
-        NSLog(@"message.body:%@", message.body);
-        if ([body isKindOfClass:NSString.class]) {
-            NSDictionary *dataDic = [self TitanDictionaryWithJsonString:body];
-            NSString *pName = dataDic[@"method"];
-            NSDictionary *params = dataDic[@"params"];
-            if ([pName isEqualToString:self.ccData[@"k2"]]) {
-                [self TitanTrackAdjustEvent:params];
-            } else if ([pName isEqualToString:self.ccData[@"k3"]]) {
-                NSString *urlString = params[@"url"];
-                if (urlString.length) {
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString] options:@{} completionHandler:nil];
-                }
-            }
-        }
-    }
-}
-
 #pragma mark - WKNavigationDelegate
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -118,6 +101,18 @@
         self.privicyWebView.alpha = 1;
         [self.activity stopAnimating];
     });
+}
+
+#pragma mark - WKUIDelegate
+- (nullable WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures
+{
+    if (navigationAction.targetFrame == nil) {
+        NSURL *url = navigationAction.request.URL;
+        if (url) {
+            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+        }
+    }
+    return nil;
 }
 
 @end
